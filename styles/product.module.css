@@ -13,6 +13,7 @@
 
 .right {
   flex: 1;
+  margin: auto;
 }
 
 .imgcontainer {
@@ -63,9 +64,10 @@
   border-radius: 10px;
 }
 
-.ingrediants {
+.ingredients {
   display: flex;
   margin-bottom: 30px;
+  flex-direction: row;
 }
 
 .option {
