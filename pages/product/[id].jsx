@@ -15,6 +15,11 @@ function Product({ pizza }) {
   //       tempore doloremque inventore. `,
   // };
 
+  // const handleChange = (e) => {
+  //   const checked = e.target.checked;
+  //   console.log(checked);
+  // };
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -48,15 +53,16 @@ function Product({ pizza }) {
         </div>
         <h3 className={styles.choose}>Choose additional ingrediants</h3>
         <div className={styles.ingredients}>
-          {pizza.extraOptions.map((option) => {
+          {/* {pizza.extraOptions.map((option) => {
             console.log(option);
-          })}
+          })} */}
           <div className={styles.option}>
             <input
               type="checkbox"
               id="double"
               name="double"
               className={styles.checkbox}
+              // onChange={(e) => handleChange(e, options)}
             />
             <label htmlFor="double">Double Ingrediants</label>
           </div>
