@@ -1,0 +1,50 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: -100px;
+  left: -170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 500px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.label {
+  margin-bottom: 10px;
+}
+
+.input {
+  height: 40px;
+}
+
+.btn {
+  background-color: teal;
+  height: 40px;
+  width: 80px;
+  color: white;
+  font-weight: bold;
+  margin-top: 20px;
+}

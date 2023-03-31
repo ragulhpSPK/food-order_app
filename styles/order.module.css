@@ -7,6 +7,12 @@
   flex: 2;
 }
 
+.id {
+  width: 70px;
+  color: green;
+  font-weight: bold;
+}
+
 .table {
   width: 100%;
   text-align: left;

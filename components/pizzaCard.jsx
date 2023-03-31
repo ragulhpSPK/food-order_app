@@ -11,7 +11,7 @@ function PizzaCard({ Pizza }) {
       </Link>
 
       <h1 className={styles.title}>{Pizza.title}</h1>
-      <span className={styles.price}>${Pizza.price}</span>
+      <span className={styles.price}>${Pizza.price[0]}</span>
       <p className={styles.desc}>{Pizza.desc}</p>
     </div>
   );

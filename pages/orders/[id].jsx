@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "../../styles/order.module.css";
 import Image from "next/image";
+import axios from "axios";
 
-function Orders() {
-  const status = 0;
+function Orders({ order }) {
+  const status = order.Status;
 
   const statusclass = (index) => {
     if (index - status < 1) return styles.done;
@@ -27,17 +28,17 @@ function Orders() {
             <tbody>
               <tr>
                 <td>
-                  <span className={styles.id}>129837818237</span>
+                  <span className={styles.id}>{order._id}</span>
                 </td>
                 <td>
-                  <span className={styles.name}>John Doe</span>
+                  <span className={styles.name}>{order.customer}</span>
                 </td>
                 <td>
-                  <span className={styles.Address}>Elton st. 212-22 LA</span>
+                  <span className={styles.Address}>{order.address}</span>
                 </td>
 
                 <td>
-                  <span className={styles.total}>$79.80</span>
+                  <span className={styles.total}>{order.total}</span>
                 </td>
               </tr>
             </tbody>
@@ -107,13 +108,15 @@ function Orders() {
         <div className={styles.wrapper}>
           <h2 className={styles.title}>Cart Total</h2>
           <div className={styles.totaltext}>
-            <b className={styles.totaltexttitle}>Subtotal:</b>$79.60
+            <b className={styles.totaltexttitle}>Subtotal:</b>
+            {order.total}
           </div>
           <div className={styles.totaltext}>
             <b className={styles.totaltexttitle}>Discount:</b>$0.00
           </div>
           <div className={styles.totaltext}>
-            <b className={styles.totaltexttitle}>Total:</b>$79.60
+            <b className={styles.totaltexttitle}>Total:</b>
+            {order.total}
           </div>
           <button className={styles.btn}>PAID</button>
         </div>
@@ -121,5 +124,15 @@ function Orders() {
     </div>
   );
 }
+
+export const getServerSideProps = async ({ params }) => {
+  const res = await axios.get(`http://localhost:3000/api/orders/${params.id}`);
+
+  console.log(res);
+
+  return {
+    props: { order: res.data },
+  };
+};
 
 export default Orders;
