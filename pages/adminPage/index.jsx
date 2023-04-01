@@ -6,7 +6,7 @@ import React from "react";
 
 function Admin({ products, orders }) {
   const [pizzaList, setPizzaList] = useState(products);
-  const [orderList, setOrderList] = useState(products);
+  // const [orderList, setOrderList] = useState(products);
   const handleDelete = async (id) => {
     console.log("trager");
     try {

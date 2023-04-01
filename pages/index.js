@@ -2,8 +2,12 @@ import Featured from "@/components/featured";
 import Pizzalist from "@/components/pizzalist";
 import Head from "next/head";
 import axios from "axios";
+import Add from "@/components/Add";
+import AddButton from "@/components/AddButton";
+import { useState } from "react";
 
 export default function Home({ PizzaList }) {
+  const [close, setClose] = useState(true);
   return (
     <>
       <Head>
@@ -13,7 +17,9 @@ export default function Home({ PizzaList }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured />
+      <AddButton setClose={setClose} />
       <Pizzalist PizzaList={PizzaList} />
+      {!close && <Add setClose={setClose} />}
     </>
   );
 }
