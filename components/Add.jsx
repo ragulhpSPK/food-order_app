@@ -45,7 +45,7 @@ function Add({ setClose }) {
         extraOptions,
         img: url,
       };
-      axios.post("http://localhost:3000/api/products", newProduct);
+      axios.post(`${process.env.BASE_URL}/api/products`, newProduct);
       setClose(true);
     } catch (err) {
       console.log(err);

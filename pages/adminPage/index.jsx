@@ -11,7 +11,7 @@ function Admin({ products, orders }) {
     console.log("trager");
     try {
       const res = await axios.delete(
-        "http://localhost:3000/api/products/" + id
+        `${process.env.BASE_URL}/api/products/` + id
       );
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
     } catch (err) {
