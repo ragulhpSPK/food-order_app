@@ -5,6 +5,7 @@ import axios from "axios";
 import Add from "@/components/Add";
 import AddButton from "@/components/AddButton";
 import { useState } from "react";
+import { server } from "@/next.config";
 
 export default function Home({ PizzaList }) {
   const [close, setClose] = useState(true);
@@ -25,7 +26,7 @@ export default function Home({ PizzaList }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await axios.get(`${server}/api/products`);
+  const res = await axios.get(`${process.env.BASE_URL}/api/products`);
 
   return {
     props: {

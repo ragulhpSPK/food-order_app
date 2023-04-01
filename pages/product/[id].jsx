@@ -5,7 +5,6 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addProduct } from "@/redux/cartslice";
-import { server } from "@/next.config";
 
 function Product({ pizza }) {
   const [price, setPrice] = useState(pizza.price[0]);
@@ -117,7 +116,9 @@ function Product({ pizza }) {
 }
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(`${server}api/products/${params.id}`);
+  const res = await axios.get(
+    `${process.env.BASE_URL}api/products/${params.id}`
+  );
   return {
     props: {
       pizza: res.data,

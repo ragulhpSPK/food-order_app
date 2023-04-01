@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../../styles/order.module.css";
 import Image from "next/image";
 import axios from "axios";
-import { server } from "@/next.config";
 
 function Orders({ order }) {
   const status = order.Status;
@@ -127,7 +126,9 @@ function Orders({ order }) {
 }
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(`${server}/api/orders/${params.id}`);
+  const res = await axios.get(
+    `${process.env.BASE_URL}/api/orders/${params.id}`
+  );
 
   console.log(res);
 
