@@ -3,6 +3,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useState } from "react";
 import React from "react";
+import { server } from "@/next.config";
 
 function Admin({ products, orders }) {
   const [pizzaList, setPizzaList] = useState(products);
@@ -10,9 +11,7 @@ function Admin({ products, orders }) {
   const handleDelete = async (id) => {
     console.log("trager");
     try {
-      const res = await axios.delete(
-        `${process.env.BASE_URL}/api/products/` + id
-      );
+      const res = await axios.delete(`${server}/api/products/` + id);
       setPizzaList(pizzaList.filter((pizza) => pizza._id !== id));
     } catch (err) {
       console.log(err);
@@ -96,7 +95,7 @@ function Admin({ products, orders }) {
 }
 
 export const getServerSideProps = async ({ params }) => {
-  const productRes = await axios.get("http://localhost:3000/api/products");
+  const productRes = await axios.get(`${server}/api/products`);
   //   const orderRes = await axios.get("http://localhost:3000/api/orders");
 
   return {
