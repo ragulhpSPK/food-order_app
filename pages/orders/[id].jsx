@@ -5,6 +5,7 @@ import axios from "axios";
 
 function Orders({ order }) {
   const status = order.Status;
+  console.log(order);
 
   const statusclass = (index) => {
     if (index - status < 1) return styles.done;
